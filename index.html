@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 50 Años - María Elena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',   /* Dorado globos */
+                        royal: '#0B1C3F',  /* Azul vestido */
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-pattern {
+            /* Fondo sutil tipo destellos */
+            background-color: #0B1C3F;
+            background-image: radial-gradient(circle at center, #1a3673 0%, #0B1C3F 100%);
+        }
+    </style>
+</head>
+<body class="bg-pattern text-white font-sans min-h-screen flex flex-col items-center justify-center py-8 px-4">
+
+    <div class="max-w-md w-full bg-white text-gray-800 shadow-2xl overflow-hidden rounded-3xl border border-gold/30">
+        
+        <div class="relative h-96 w-full">
+            <img src="foto1.jpg" alt="María Elena" class="object-cover w-full h-full object-top">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+            <div class="absolute bottom-6 left-0 right-0 text-center px-4">
+                <h1 class="text-5xl font-serif text-gold mb-2 drop-shadow-lg">María Elena</h1>
+                <p class="text-xl tracking-[0.2em] text-white uppercase font-light">Mis 50 Años</p>
+            </div>
+        </div>
+
+        <div class="p-8 text-center bg-zinc-50">
+            <p class="text-gray-600 mb-6 font-light leading-relaxed">
+                Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quiero los hace inolvidables. ¡Acompáñame a celebrar!
+            </p>
+
+            <div class="w-16 h-px bg-gold mx-auto mb-6"></div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-serif text-royal mb-4">Cuándo</h2>
+                <p class="text-xl font-semibold text-gray-800">11 de Abril</p>
+                <p class="text-gray-600 mt-1">Recepción: 14:30 hrs</p>
+            </div>
+
+            <div class="w-16 h-px bg-gold mx-auto mb-6"></div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-serif text-royal mb-4">Dónde</h2>
+                <p class="font-semibold text-lg text-gray-800">Salón Alcatraces</p>
+                <p class="text-gray-600 text-sm mt-2 px-4 leading-relaxed">
+                    Circuito Unidad Cívica 304,<br>
+                    Col. Heberto Castillo
+                </p>
+                <a href="https://maps.google.com/?q=Circuito+unidad+civica+304+col.+Heberto+Castillo+Salon+alcatraces" target="_blank"
+                   class="inline-block mt-5 px-8 py-3 bg-royal text-white rounded-full font-semibold tracking-wide text-sm hover:bg-gold transition-colors duration-300 shadow-lg">
+                    Abrir en Google Maps
+                </a>
+            </div>
+
+            <div class="mt-10 mb-6">
+                <img src="foto2.jpg" alt="María Elena 50 Años" class="w-full h-auto rounded-xl shadow-md border-2 border-gold/20">
+            </div>
+
+            <div class="mt-8 pb-4">
+                 <p class="text-sm text-gray-500 italic font-serif text-lg">¡Espero contar con tu presencia!</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
