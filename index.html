@@ -4,83 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis 50 Años - María Elena</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        gold: '#D4AF37',   /* Dorado globos */
-                        royal: '#0B1C3F',  /* Azul vestido */
+                        gold: '#D4AF37',
+                        'gold-light': '#F3E5AB',
+                        'gold-dark': '#AA8529',
+                        royal: '#061124',
+                        'royal-light': '#122345',
                     },
                     fontFamily: {
                         serif: ['Cinzel', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
+                        script: ['Pinyon Script', 'cursive'],
                     }
                 }
             }
         }
     </script>
+
     <style>
-        .bg-pattern {
-            /* Fondo sutil tipo destellos */
-            background-color: #0B1C3F;
-            background-image: radial-gradient(circle at center, #1a3673 0%, #0B1C3F 100%);
+        body {
+            background-color: #061124;
+            background-image: radial-gradient(circle at top right, #122345 0%, #061124 60%);
+            background-attachment: fixed;
+        }
+        
+        .gold-text-gradient {
+            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gold-border {
+            border-image: linear-gradient(to right, #BF953F, #FCF6BA, #B38728) 1;
+        }
+
+        /* Animación suave para la foto principal */
+        .zoom-bg {
+            animation: slowZoom 20s infinite alternate;
+        }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Pantalla de bienvenida */
+        #welcome-screen {
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+        .hidden-welcome {
+            opacity: 0;
+            visibility: hidden;
         }
     </style>
 </head>
-<body class="bg-pattern text-white font-sans min-h-screen flex flex-col items-center justify-center py-8 px-4">
+<body class="text-white font-sans antialiased selection:bg-gold selection:text-royal overflow-x-hidden">
 
-    <div class="max-w-md w-full bg-white text-gray-800 shadow-2xl overflow-hidden rounded-3xl border border-gold/30">
-        
-        <div class="relative h-96 w-full">
-            <img src="foto1.jpg" alt="María Elena" class="object-cover w-full h-full object-top">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-            <div class="absolute bottom-6 left-0 right-0 text-center px-4">
-                <h1 class="text-5xl font-serif text-gold mb-2 drop-shadow-lg">María Elena</h1>
-                <p class="text-xl tracking-[0.2em] text-white uppercase font-light">Mis 50 Años</p>
-            </div>
-        </div>
+    <audio id="bgMusic" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 
-        <div class="p-8 text-center bg-zinc-50">
-            <p class="text-gray-600 mb-6 font-light leading-relaxed">
-                Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quiero los hace inolvidables. ¡Acompáñame a celebrar!
-            </p>
-
-            <div class="w-16 h-px bg-gold mx-auto mb-6"></div>
-
-            <div class="mb-8">
-                <h2 class="text-2xl font-serif text-royal mb-4">Cuándo</h2>
-                <p class="text-xl font-semibold text-gray-800">11 de Abril</p>
-                <p class="text-gray-600 mt-1">Recepción: 14:30 hrs</p>
-            </div>
-
-            <div class="w-16 h-px bg-gold mx-auto mb-6"></div>
-
-            <div class="mb-8">
-                <h2 class="text-2xl font-serif text-royal mb-4">Dónde</h2>
-                <p class="font-semibold text-lg text-gray-800">Salón Alcatraces</p>
-                <p class="text-gray-600 text-sm mt-2 px-4 leading-relaxed">
-                    Circuito Unidad Cívica 304,<br>
-                    Col. Heberto Castillo
-                </p>
-                <a href="https://maps.google.com/?q=Circuito+unidad+civica+304+col.+Heberto+Castillo+Salon+alcatraces" target="_blank"
-                   class="inline-block mt-5 px-8 py-3 bg-royal text-white rounded-full font-semibold tracking-wide text-sm hover:bg-gold transition-colors duration-300 shadow-lg">
-                    Abrir en Google Maps
-                </a>
-            </div>
-
-            <div class="mt-10 mb-6">
-                <img src="foto2.jpg" alt="María Elena 50 Años" class="w-full h-auto rounded-xl shadow-md border-2 border-gold/20">
-            </div>
-
-            <div class="mt-8 pb-4">
-                 <p class="text-sm text-gray-500 italic font-serif text-lg">¡Espero contar con tu presencia!</p>
-            </div>
+    <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-royal bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]">
+        <div class="text-center p-8 border border-gold/30 rounded-xl bg-royal-light/50 backdrop-blur-sm max-w-sm w-[90%] shadow-[0_0_40px_rgba(212,175,55,0.1)]">
+            <h2 class="font-script text-5xl text-gold-light mb-2">Invitación Especial</h2>
+            <p class="font-serif tracking-widest text-sm text-gray-300 mb-8 uppercase">Para Celebrar la Vida</p>
+            <button onclick="openInvitation()" class="group relative px-8 py-3 bg-transparent border-2 border-gold text-gold font-serif uppercase tracking-wider text-sm overflow-hidden transition-all hover:text-royal hover:bg-gold duration-500">
+                <span class="relative z-10 flex items-center gap-2">
+                    Abrir Invitación <i class="fa-solid fa-envelope-open-text"></i>
+                </span>
+            </button>
         </div>
     </div>
 
+    <button id="musicToggle" onclick="toggleMusic()" class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-gold/10 backdrop-blur-md border border-gold/50 rounded-full flex items-center justify-center text-gold shadow-lg transition-transform hover:scale-110 opacity-0 transition-opacity duration-1000">
+        <i class="fa-solid fa-music animate-pulse"></i>
+    </button>
+
+    <div id="main-content" class="max-w-md mx-auto w-full bg-royal-light/40 shadow-2xl min-h-screen relative border-x border-gold/10 pb-16 hidden">
+        
+        <div class="relative h-[80vh] w-full overflow-hidden border-b-4 gold-border">
+            <img src="foto1.jpg" alt="María Elena" class="zoom-bg object-cover w-full h-full object-top opacity-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent"></div>
+            
+            <div class="absolute bottom-10 left-0 right-0 text-center px-4" data-aos="fade-up" data-aos-duration="1500">
+                <p class="font-script text-4xl text-gold-light mb-0">Mis</p>
+                <h1 class="text-7xl font-serif gold-text-gradient drop-shadow-2xl mb-2">50</h1>
+                <h2 class="text-4xl font-serif text-white tracking-wider uppercase drop-shadow-lg">María Elena</h2>
+            </div>
+        </div>
+
+        <div class="px-8 py-16 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <i class="fa-solid fa-quote-left text-2xl text-gold/40 mb-4"></i>
+            <p class="text-gray-300 font-light leading-relaxed text-lg italic">
+                Cincuenta años de momentos, risas y aprendizajes. Hoy celebro la vida y quiero compartir la alegría de este día tan especial con las personas que hacen mi mundo más hermoso.
+            </p>
+            <i class="fa-solid fa-quote-right text-2xl text-gold/40 mt-4"></i>
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-8"></div>
+        </div>
+
+        <div class="px-6 py-8">
+            <div class="bg-royal/60 border border-gold/20 rounded-2xl p-8 text-center shadow-xl backdrop-blur-sm" data-aos="zoom-in" data-aos-duration="1000">
+                
+                <div class="mb-8">
+                    <i class="fa-regular fa-calendar text-3xl text-gold mb-3"></i>
+                    <h3 class="font-serif text-gold-light text-xl tracking-widest uppercase mb-2">Sábado</h3>
+                    <p class="text-4xl font-serif text-white mb-1">11</p>
+                    <p class="text-xl font-serif text-gold-light uppercase tracking-widest">Abril</p>
+                    <p class="text-gray-400 mt-3 font-light">Recepción: <span class="text-white font-medium">14:30 hrs</span></p>
+                </div>
+
+                <div class="w-3/4 h-px bg-gold/20 mx-auto mb-8"></div>
+
+                <div>
+                    <i class="fa-solid fa-location-dot text-3xl text-gold mb-3"></i>
+                    <h3 class="font-serif text-gold-light text-xl tracking-widest uppercase mb-2">Lugar</h3>
+                    <p class="text-xl font-medium text-white mb-2">Salón Alcatraces</p>
+                    <p class="text-gray-400 font-light text-sm px-2 mb-6">
+                        Circuito Unidad Cívica 304,<br>Col. Heberto Castillo
+                    </p>
+                    
+                    <a href="https://maps.google.com/?q=Circuito+Unidad+Civica+304+Col+Heberto+Castillo+Salon+Alcatraces" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gold/10 border border-gold hover:bg-gold hover:text-royal transition-all duration-300 text-gold-light rounded-full text-sm font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver en Mapa
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-8 py-12 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <i class="fa-solid fa-martini-glass-citrus text-3xl text-gold mb-4"></i>
+            <h3 class="font-serif text-2xl text-gold-light mb-2">Código de Vestimenta</h3>
+            <p class="text-gray-300 font-light tracking-wide uppercase">Elegante / Formal</p>
+        </div>
+
+        <div class="px-6 py-8" data-aos="fade-up" data-aos-duration="1000">
+            <div class="relative p-2 border-2 border-gold/30 rounded-xl bg-royal">
+                <img src="foto2.jpg" alt="María Elena 50 Años" class="w-full h-auto rounded-lg shadow-2xl">
+                <div class="absolute inset-0 border border-gold/10 rounded-xl m-4 pointer-events-none"></div>
+            </div>
+        </div>
+
+        <div class="text-center pt-12 pb-8 px-6" data-aos="fade-in" data-aos-duration="1500">
+            <p class="font-script text-4xl text-gold-light mb-4">Con Cariño,</p>
+            <h2 class="text-3xl font-serif text-white tracking-widest uppercase">María Elena</h2>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const music = document.getElementById('bgMusic');
+        const musicIcon = document.querySelector('#musicToggle i');
+
+        function openInvitation() {
+            // Ocultar pantalla de bienvenida
+            document.getElementById('welcome-screen').classList.add('hidden-welcome');
+            
+            // Mostrar contenido
+            const mainContent = document.getElementById('main-content');
+            mainContent.classList.remove('hidden');
+            
+            // Mostrar botón de música
+            setTimeout(() => {
+                document.getElementById('musicToggle').classList.remove('opacity-0');
+            }, 1000);
+
+            // Iniciar animaciones de scroll
+            AOS.init({
+                once: true,
+                offset: 50,
+            });
+
+            // Reproducir música (volumen al 50% para que sea agradable)
+            music.volume = 0.5;
+            music.play().catch(function(error) {
+                console.log("Autoplay bloqueado por el navegador");
+            });
+        }
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicIcon.classList.remove('fa-volume-xmark');
+                musicIcon.classList.add('fa-music', 'animate-pulse');
+            } else {
+                music.pause();
+                musicIcon.classList.remove('fa-music', 'animate-pulse');
+                musicIcon.classList.add('fa-volume-xmark');
+            }
+        }
+    </script>
 </body>
 </html>
