@@ -121,7 +121,7 @@
                 
                 <div class="mb-8">
                     <i class="fa-regular fa-calendar text-3xl text-gold mb-3"></i>
-                    <h3 class="font-serif text-gold-light text-xl tracking-widest uppercase mb-2">Sábado</h3>
+                    <h3 class="font-serif text-gold-light text-xl tracking-widest uppercase mb-2">Jueves</h3>
                     <p class="text-4xl font-serif text-white mb-1">11</p>
                     <p class="text-xl font-serif text-gold-light uppercase tracking-widest">Abril</p>
                     <p class="text-gray-400 mt-3 font-light">Recepción: <span class="text-white font-medium">14:30 hrs</span></p>
@@ -144,10 +144,20 @@
             </div>
         </div>
 
-        <div class="px-8 py-12 text-center" data-aos="fade-up" data-aos-duration="1000">
-            <i class="fa-solid fa-martini-glass-citrus text-3xl text-gold mb-4"></i>
+        <div class="px-8 pt-8 pb-4 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <i class="fa-solid fa-shirt text-3xl text-gold mb-4"></i>
             <h3 class="font-serif text-2xl text-gold-light mb-2">Código de Vestimenta</h3>
-            <p class="text-gray-300 font-light tracking-wide uppercase">Elegante / Formal</p>
+            <p class="text-gray-300 font-light tracking-wide uppercase">Formal / Casual</p>
+        </div>
+
+        <div class="px-8 py-8 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <i class="fa-solid fa-envelope-circle-check text-4xl text-gold mb-4 animate-bounce"></i>
+            <h3 class="font-serif text-2xl text-gold-light mb-4">Asistencia</h3>
+            <p class="text-gray-300 font-light mb-6 text-sm px-4">Por favor, confirma tu asistencia para organizar todos los detalles con mucho cariño.</p>
+            
+            <a href="https://forms.gle/5ETe64EqquwC3atd9" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold-dark via-gold to-gold-light text-royal hover:scale-105 transition-transform duration-300 rounded-full text-sm font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                Confirmar Asistencia <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
 
         <div class="px-6 py-8" data-aos="fade-up" data-aos-duration="1000">
@@ -157,7 +167,7 @@
             </div>
         </div>
 
-        <div class="text-center pt-12 pb-8 px-6" data-aos="fade-in" data-aos-duration="1500">
+        <div class="text-center pt-8 pb-12 px-6" data-aos="fade-in" data-aos-duration="1500">
             <p class="font-script text-4xl text-gold-light mb-4">Con Cariño,</p>
             <h2 class="text-3xl font-serif text-white tracking-widest uppercase">María Elena</h2>
         </div>
@@ -170,28 +180,19 @@
         const musicIcon = document.querySelector('#musicToggle i');
 
         function openInvitation() {
-            // Ocultar pantalla de bienvenida
             document.getElementById('welcome-screen').classList.add('hidden-welcome');
-            
-            // Mostrar contenido
             const mainContent = document.getElementById('main-content');
             mainContent.classList.remove('hidden');
             
-            // Mostrar botón de música
             setTimeout(() => {
                 document.getElementById('musicToggle').classList.remove('opacity-0');
             }, 1000);
 
-            // Iniciar animaciones de scroll
-            AOS.init({
-                once: true,
-                offset: 50,
-            });
+            AOS.init({ once: true, offset: 50 });
 
-            // Reproducir música (volumen al 50% para que sea agradable)
             music.volume = 0.5;
             music.play().catch(function(error) {
-                console.log("Autoplay bloqueado por el navegador");
+                console.log("Autoplay bloqueado");
             });
         }
 
